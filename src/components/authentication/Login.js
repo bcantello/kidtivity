@@ -1,27 +1,57 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import {Link} from "react-router-dom";
+import {UniversalContext} from "../../App";
+import {verifyUser} from "../services/api-helper";
 
-export default function Login() {
+export default function Login(props) {
+	const universalContext = useContext(UniversalContext)
+	const [User, setUser] = useState({
+		username: "",
+		password: "",
+	});
+
+	const handleChange = (e) => {
+		const value = e.target.value
+		setUser({...User, [e.target.name]: value});
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		await verifyUser(User).then(response => {
+			if (response.status === 200) {
+				handleSuccessfulAuth(response.data)
+			} else {
+				console.log('login error')
+			}
+		}).catch(error => {
+			console.log("registration error", error)
+		});
+	};
+
+	const handleSuccessfulAuth = (data) => {
+		universalContext.handleLogin(data);
+		props.history.push("/home");
+	};
+
 	return (
 		<div className="auth-body">
 			<div className="Login-Container">
 				<div className="Login">
 					<div className="User-Login"><h1>user login</h1></div>
-					{/*<form className="Login-Form" onSubmit={handleSubmit}>*/}
-					<form>
+					<form className="Login-Form" onSubmit={handleSubmit}>
 						<input className="Login-Form-Input"
 						       type="text"
 						       name="username"
 						       placeholder="USERNAME"
-						       // value={User.username}
-						       // onChange={handleChange} required
+						       value={User.username}
+						       onChange={handleChange} required
 						/>
 						<input className="Login-Form-Input"
 						       type="password"
 						       name="password"
 						       placeholder="PASSWORD"
-						       // value={User.password}
-						       // onChange={handleChange} required
+						       value={User.password}
+						       onChange={handleChange} required
 						/>
 						<button className="Login-Form-Button" type="submit">continue</button>
 					</form>
@@ -30,4 +60,4 @@ export default function Login() {
 			</div>
 		</div>
 	)
-}
+};

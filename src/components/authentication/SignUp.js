@@ -8,11 +8,10 @@ export default function SignUp(props) {
 	const [newUser, setNewUser] = useState({
 		username: "",
 		email: "",
-		password: "",
 		first_name: "",
 		last_name: "",
+		password: "",
 	});
-	console.log("THIS IS NEWUSER: ",newUser)
 
 	const handleChange = (e) => {
 		const value = e.target.value
@@ -23,7 +22,6 @@ export default function SignUp(props) {
 		e.preventDefault();
 		await createUser(newUser).then(response => {
 			if (response.status === 200) {
-				console.log("THIS IS RESPONSE: ",response)
 				handleSuccessfulAuth(response.data);
 			}
 		}).catch(error => {

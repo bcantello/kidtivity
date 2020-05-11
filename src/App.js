@@ -4,6 +4,8 @@ import Main from "./components/Main";
 
 function App() {
     const [userToken, setUserToken] = useState("");
+    localStorage.setItem("tokenKey", userToken)
+    console.log(userToken)
 
     const handleLogin = (data) => {
         setUserToken(data.token)
