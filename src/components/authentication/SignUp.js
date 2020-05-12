@@ -2,6 +2,7 @@ import React, {useContext, useState} from "react";
 import {Link} from "react-router-dom";
 import {createUser} from "../services/api-helper";
 import {UniversalContext} from "../../App";
+import './authentication.css'
 
 export default function SignUp(props) {
 	const universalContext = useContext(UniversalContext)
