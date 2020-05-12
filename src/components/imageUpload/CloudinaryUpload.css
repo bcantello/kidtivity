@@ -1,4 +1,27 @@
+.example::-webkit-scrollbar {
+    display: none;
+}
+
 .cloudinary-image-container img{
     height: 300px;
-    width: 500px;;
+    width: 500px;
+}
+
+.cloudinary-button-container {
+    display: flex;
+    justify-content: left;
+}
+
+.cloudinary-button-container p {
+    max-width: 500px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.upload-image-btn {
+    border: #5E5D5D solid 1px;
+    padding: 10px;
+    margin: 10px 50px 0 13%;
+    background-color: #5E5D5D;
+    color: white;
 }
