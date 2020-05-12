@@ -3,19 +3,17 @@ import './App.css';
 import Main from "./components/Main";
 
 function App() {
-    const [userToken, setUserToken] = useState("");
-    localStorage.setItem("tokenKey", userToken)
-    console.log(userToken)
-
-    const handleLogin = (data) => {
-        setUserToken(data.token)
-    };
+    const [userInfo, setUserInfo] = useState(()=>{
+        const result = localStorage.getItem('user')
+        return result? JSON.parse(result): []
+    })
 
     return (
         <div className="App">
             <UniversalContext.Provider value={
                 {
-                    handleLogin
+                    userInfo,
+                    setUserInfo,
                 }
             }>
                 <Main/>

@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const api = axios.create({
-	baseURL: "https://kidtivity.herokuapp.com/"
+	// baseURL: "https://kidtivity.herokuapp.com/"
+	baseURL: "http://127.0.0.1:8000/"
 });
 
 export const createUser = async (user) => {
@@ -18,6 +19,21 @@ export const verifyUser = async (user) => {
 		return await api.post(`/auth/users/login/`, user);
 	}
 	catch (err) {
+		return err
+	}
+};
+
+export const createActivity = async (activity, token) => {
+	try {
+		console.log("TOKEN IN FUNCTION: ", localStorage.getItem("tokenKey"));
+		return await api.post(`/activities/activities/`, activity, {
+			headers: {
+				authorization: 'JWT ' + token
+			}
+		});
+	}
+	catch (err) {
+		console.log(err)
 		return err
 	}
 };
