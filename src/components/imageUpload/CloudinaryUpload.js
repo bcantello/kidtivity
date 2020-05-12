@@ -16,12 +16,10 @@ export default function CloudinaryUpload() {
 		};
 		openUploadWidget(uploadOptions, (error, photos) => {
 			if (!error) {
-				console.log("THIS IS PHOTOS: ",photos);
 				if (photos.event === 'success') {
 					setImages([...images, photos.info.public_id])
 				}
 				if (photos.info.files) {
-					console.log("IM IN THE IF!!!!")
 					universalContext.setImageLink(photos.info.files[0]['uploadInfo']['secure_url']);
 				}
 			} else {
