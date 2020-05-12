@@ -5,34 +5,10 @@ import CloudinaryUpload from "../imageUpload/CloudinaryUpload";
 
 export default function CreateActivity(props) {
 	const universalContext = useContext(UniversalContext);
-	const [activityImage, setActivityImage] = useState([]);
-	const [newActivity, setNewActivity] = useState({
-		title: "",
-		category: "",
-		age_range: "",
-		summary: "",
-		supplies: "",
-		body: "",
-		image: activityImage,
-		is_public: "True",
-	});
-	console.log(newActivity);
-	console.log(activityImage);
-
-	const handleChange = (e) => {
-		const value = e.target.value
-		setNewActivity({...newActivity, [e.target.name]: value});
-	};
-
-	const handleChangePicture = e => {
-		console.log('picture: ', activityImage);
-		setActivityImage([...activityImage, e.target.files[0]]);
-		setNewActivity({...newActivity, image: activityImage})
-	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		await createActivity(newActivity, universalContext.userInfo.token).then(response => {
+		await createActivity(universalContext.activityPayload, universalContext.userInfo.token).then(response => {
 			if (response.status === 201) {
 				props.history.push("/home");
 			}
@@ -51,48 +27,41 @@ export default function CreateActivity(props) {
 						       type="text"
 						       name="title"
 						       placeholder="TITLE"
-						       value={newActivity.title}
-						       onChange={handleChange} required
+						       value={universalContext.newActivity.title}
+						       onChange={universalContext.handleChange} required
 						/>
 						<input className="create-activity-Input"
 						       type="text"
 						       name="category"
 						       placeholder="CATEGORY"
-						       value={newActivity.category}
-						       onChange={handleChange} required
+						       value={universalContext.newActivity.category}
+						       onChange={universalContext.handleChange} required
 						/>
 						<input className="create-activity-Input"
 						       type="text"
 						       name="age_range"
 						       placeholder="AGE RANGE"
-						       value={newActivity.age_range}
-						       onChange={handleChange} required
+						       value={universalContext.newActivity.age_range}
+						       onChange={universalContext.handleChange} required
 						/>
 						<textarea className="create-activity-Input"
 						          name="summary"
 						          placeholder="SUMMARY"
-						          value={newActivity.summary}
-						          onChange={handleChange} required
+						          value={universalContext.newActivity.summary}
+						          onChange={universalContext.handleChange} required
 						/>
 						<textarea className="create-activity-Input"
 						          name="supplies"
 						          placeholder="SUPPLIES"
-						          value={newActivity.supplies}
-						          onChange={handleChange} required
+						          value={universalContext.newActivity.supplies}
+						          onChange={universalContext.handleChange} required
 						/>
 						<textarea className="create-activity-Input"
 						          name="body"
 						          placeholder="BODY"
-						          value={newActivity.body}
-						          onChange={handleChange} required
+						          value={universalContext.newActivity.body}
+						          onChange={universalContext.handleChange} required
 						/>
-						{/*<input className="create-active-Input"*/}
-						{/*       type="file"*/}
-						{/*       name="image"*/}
-						{/*       placeholder="IMAGE"*/}
-						{/*       // value={newActivity.image}*/}
-						{/*       onChange={e => handleChangePicture(e)}*/}
-						{/*/>*/}
 						<CloudinaryUpload/>
 						<button className="create-activity-form-button" type="submit">submit</button>
 					</form>
