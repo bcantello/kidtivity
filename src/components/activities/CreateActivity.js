@@ -1,25 +1,33 @@
 import React, {useContext, useState} from "react";
 import {createActivity} from "../services/api-helper"
 import {UniversalContext} from "../../App";
+import CloudinaryUpload from "../imageUpload/CloudinaryUpload";
 
 export default function CreateActivity(props) {
 	const universalContext = useContext(UniversalContext);
+	const [activityImage, setActivityImage] = useState([]);
 	const [newActivity, setNewActivity] = useState({
 		title: "",
-		// owner: universalContext.username,
 		category: "",
 		age_range: "",
 		summary: "",
 		supplies: "",
 		body: "",
-		// image: "",
+		image: activityImage,
 		is_public: "True",
 	});
-	console.log("THIS IS NEWACTIVITY: ", newActivity);
+	console.log(newActivity);
+	console.log(activityImage);
 
 	const handleChange = (e) => {
 		const value = e.target.value
 		setNewActivity({...newActivity, [e.target.name]: value});
+	};
+
+	const handleChangePicture = e => {
+		console.log('picture: ', activityImage);
+		setActivityImage([...activityImage, e.target.files[0]]);
+		setNewActivity({...newActivity, image: activityImage})
 	};
 
 	const handleSubmit = async (e) => {
@@ -78,6 +86,14 @@ export default function CreateActivity(props) {
 						          value={newActivity.body}
 						          onChange={handleChange} required
 						/>
+						{/*<input className="create-active-Input"*/}
+						{/*       type="file"*/}
+						{/*       name="image"*/}
+						{/*       placeholder="IMAGE"*/}
+						{/*       // value={newActivity.image}*/}
+						{/*       onChange={e => handleChangePicture(e)}*/}
+						{/*/>*/}
+						<CloudinaryUpload/>
 						<button className="create-activity-form-button" type="submit">submit</button>
 					</form>
 				</div>
