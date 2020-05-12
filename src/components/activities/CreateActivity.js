@@ -23,8 +23,7 @@ export default function CreateActivity(props) {
 			<div className="create-activity-wrapper">
 				<div className="create-activity-container">
 					<div className="create-activity"><h1>create activity</h1></div>
-					<form onSubmit={handleSubmit} className="create-activity-form">
-						<CloudinaryUpload/>
+					<form className="create-activity-form">
 						<input className="create-activity-Input"
 						       type="text"
 						       name="title"
@@ -32,20 +31,32 @@ export default function CreateActivity(props) {
 						       value={universalContext.newActivity.title}
 						       onChange={universalContext.handleChange} required
 						/>
-						<input className="create-activity-Input"
-						       type="text"
-						       name="category"
-						       placeholder="CATEGORY"
-						       value={universalContext.newActivity.category}
-						       onChange={universalContext.handleChange} required
-						/>
-						<input className="create-activity-Input"
-						       type="text"
-						       name="age_range"
-						       placeholder="AGE RANGE"
-						       value={universalContext.newActivity.age_range}
-						       onChange={universalContext.handleChange} required
-						/>
+						<select className="create-activity-Input"
+						        name="category"
+						        placeholder="CATEGORY"
+						        value={universalContext.newActivity.category}
+						        onChange={universalContext.handleChange} required>
+							<option value={"Art"}>Art</option>
+							<option value={"Developmental"}>Developmental</option>
+							<option value={"Educational"}>Educational</option>
+							<option value={"Science"}>Science</option>
+							<option value={"Games"}>Games</option>
+						</select>
+						<select className="create-activity-Input"
+						        name="age_range"
+						        placeholder="AGE RANGE"
+						        value={universalContext.newActivity.age_range}
+						        onChange={universalContext.handleChange} required>
+							<option value={"Infant"}>Infant</option>
+							<option value={"Toddler"}>Toddler</option>
+							<option value={"Kindergarten"}>Kindergarten</option>
+							<option value={"First-Grade"}>First-Grade</option>
+							<option value={"Second-Grade"}>Second-Grade</option>
+							<option value={"Third-Grade"}>Third-Grade</option>
+							<option value={"Fourth-Grade"}>Fourth-Grade</option>
+							<option value={"Fifth-Grade"}>Fifth-Grade</option>
+							<option value={"Sixth-Grade"}>Sixth-Grade</option>
+						</select>
 						<textarea className="create-activity-Input"
 						          name="summary"
 						          placeholder="SUMMARY"
@@ -64,8 +75,9 @@ export default function CreateActivity(props) {
 						          value={universalContext.newActivity.body}
 						          onChange={universalContext.handleChange} required
 						/>
-						<button className="create-activity-form-button" type="submit">submit</button>
 					</form>
+					<CloudinaryUpload/>
+					<button className="create-activity-form-button" onClick={handleSubmit}>submit</button>
 				</div>
 			</div>
 		</div>

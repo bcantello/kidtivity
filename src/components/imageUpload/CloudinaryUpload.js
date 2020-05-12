@@ -11,7 +11,7 @@ export default function CloudinaryUpload() {
 	const beginUpload = tag => {
 		const uploadOptions = {
 			cloudName: "bcantello",
-			tags: [tag, 'anImage'],
+			tags: [tag, 'kidtivity'],
 			uploadPreset: "ahlxmt3p"
 		};
 		openUploadWidget(uploadOptions, (error, photos) => {
@@ -33,16 +33,17 @@ export default function CloudinaryUpload() {
 
 	return (
 		<CloudinaryContext cloudName="bcantello">
-			<div className="App">
-				<button onClick={() => beginUpload("image")}>Upload Image</button>
-				<section className="cloudinary-image-container">
-					{images.map(i => <Image
-						key={i}
-						publicId={i}
-						fetch-format="auto"
-						quality="auto"
-					/>)}
-				</section>
+			<div className="cloudinary-button-container">
+				<button className={"upload-image-btn"} onClick={() => beginUpload("image")}>Upload Image</button>
+				<p>{universalContext.imageLink}</p>
+				{/*<section className="cloudinary-image-container">*/}
+				{/*	{images.map(i => <Image*/}
+				{/*		key={i}*/}
+				{/*		publicId={i}*/}
+				{/*		fetch-format="auto"*/}
+				{/*		quality="auto"*/}
+				{/*	/>)}*/}
+				{/*</section>*/}
 			</div>
 		</CloudinaryContext>
 	);
