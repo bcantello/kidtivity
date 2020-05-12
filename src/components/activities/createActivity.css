@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.auth-body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #a3f3ff;
+    min-width: 320px;
+}
+
+.create-activity-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.create-activity-container {
+    width: 85%;
+    font-family: Roboto, serif;
+    background: rgba(249, 247, 247, 0.9);
+    box-shadow: 20px 25px 13px -20px rgba(0,0,0,0.35);
+    border-radius: 9px;
+    text-align: center;
+}
+
+.create-activity h1 {
+    color: #5E5D5D;
+    padding: 30px;
+    font-size: 1em;
+}
+
+.create-activity-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-activity-Input {
+    font-weight: 400;
+    font-family: Roboto, serif;
+    color: #6A6A6A;
+    width: 85%;
+    padding: 12px 20px;
+    margin: 8px auto;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+.create-activity-form-button {
+    color:#ffffff;
+    font-family: Roboto, serif;
+    border: none;
+    border-radius: 1px;
+    width: 20%;
+    margin: 20px 0 8px 0;
+    background-color: #e56c4e;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    justify-content: center;
+}
+
+.create-activity-form-button:hover {
+    cursor: pointer;
+    opacity: .90;
+}
+
+@media(min-width: 375px) {
+    .create-activity h1 {
+        font-size: 1.5em;
+    }
+
+    .create-activity-Input {
+        width: 75%;
+    }
+}
+
+@media(min-width: 425px) {
+    .create-activity h1 {
+        font-size: 1.3em;
+    }
+}
+
+@media(min-width: 768px) {
+    .create-activity-container {
+        width: 50%;
+    }
+
+    .create-activity h1 {
+        font-size: 1.25em;
+    }
+}
+
+@media(min-width: 1024px) {
+    .create-activity h1 {
+        font-size: 1.25em;
+    }
+
+    .create-activity-Input {
+        font-weight: 400;
+        font-size: .9em;
+    }
+    .create-activity-form-button {
+        width: 120px;
+    }
+}
+
+
