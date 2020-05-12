@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 export default function Home() {
 	return<>
@@ -37,7 +38,7 @@ export default function Home() {
 		<header className="blog-header py-3">
 			<div className="row flex-nowrap justify-content-between align-items-center">
 				<div className="col-4 pt-1">
-					<a className="text-muted" href="#">Contribute</a>
+					<Link className="text-muted" to="/create-activity">Post activity</Link>
 				</div>
 				<div className="col-4 text-center">
 					<a className="blog-header-logo text-dark" href="#">Kidtivity</a>
@@ -157,7 +158,7 @@ export default function Home() {
 	</main>
 
 	<footer className="blog-footer">
-		<p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+		<p>Designed and built by <a href="http://www.brandoncantello.com/" target="_blank" rel="noopener nofollower noreferrer">Brandon Cantello</a> &copy; 2020</p>
 		<p>
 			<a href="#">Back to top</a>
 		</p>

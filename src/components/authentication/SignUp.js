@@ -21,23 +21,23 @@ export default function SignUp(props) {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		await createUser(newUser).then(response => {
-			if (response.status === 200) {
-				handleSuccessfulAuth(response.data);
+			console.log(response.status)
+			if (response.status === 201) {
+				console.log("I'm in here")
+				universalContext.setUserInfo(response.data)
+				localStorage.setItem('user', JSON.stringify((response.data)))
+				props.history.push("/home");
+			} else {
+				console.log('account creation error')
 			}
 		}).catch(error => {
 			return(error);
 		});
 	};
 
-	const handleSuccessfulAuth = (data) => {
-		universalContext.handleLogin(data);
-		props.history.push("/home");
-	};
-
-
 	return(
 		<div className="auth-body">
-			<div className="Login-Container">
+			<div className="SignUp-Container">
 				<div className="SignUp">
 					<div className="Create-Account"><h1>create account</h1></div>
 					<form onSubmit={handleSubmit} className="SignUp-Form">

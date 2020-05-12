@@ -19,18 +19,15 @@ export default function Login(props) {
 		e.preventDefault();
 		await verifyUser(User).then(response => {
 			if (response.status === 200) {
-				handleSuccessfulAuth(response.data)
+				universalContext.setUserInfo(response.data)
+				localStorage.setItem('user', JSON.stringify((response.data)))
+				props.history.push("/home");
 			} else {
 				console.log('login error')
 			}
 		}).catch(error => {
 			console.log("registration error", error)
 		});
-	};
-
-	const handleSuccessfulAuth = (data) => {
-		universalContext.handleLogin(data);
-		props.history.push("/home");
 	};
 
 	return (
