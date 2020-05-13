@@ -1,13 +1,17 @@
-import React, {useState, createContext} from 'react';
+import React, {useState, createContext, useEffect} from 'react';
 import './App.css';
 import Main from "./components/Main";
+import {getPublicActivities} from "./components/services/api-helper";
 
 function App() {
-    const [imageLink, setImageLink] = useState("")
-    const [userInfo, setUserInfo] = useState(()=>{
-        const result = localStorage.getItem('user')
-        return result? JSON.parse(result): []
-    })
+    const [imageLink, setImageLink] = useState("");
+    const [publicActivities, setPublicActivities] = useState([]);
+    const [primaryKey, setPrimaryKey] = useState(0)
+    console.log(primaryKey)
+    const [userInfo, setUserInfo] = useState(() => {
+        const result = localStorage.getItem('user');
+        return result ? JSON.parse(result) : []
+    });
     const [newActivity, setNewActivity] = useState({
         title: "",
         category: "",
@@ -27,8 +31,22 @@ function App() {
         body: newActivity.body,
         image: imageLink,
         is_public: "True"
-    }
-    console.log("PAYLOAD",activityPayload)
+    };
+
+    useEffect(() => {
+        const getActivities = async () => {
+            await getPublicActivities().then(res => {
+                if (res.status === 200) {
+                    setPublicActivities(res.data)
+                } else {
+                    console.log("error retrieving public activities")
+                }
+            }).catch(e => {
+                console.log(e);
+            });
+        };
+        getActivities();
+    }, []);
 
     const handleChange = (e) => {
         const value = e.target.value
@@ -47,6 +65,9 @@ function App() {
                     newActivity,
                     setNewActivity,
                     activityPayload,
+                    publicActivities,
+                    primaryKey,
+                    setPrimaryKey,
                 }
             }>
                 <Main/>
