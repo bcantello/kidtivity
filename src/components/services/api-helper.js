@@ -36,3 +36,13 @@ export const createActivity = async (activity, token) => {
 		return err
 	}
 };
+
+export const getPublicActivities = async () => {
+	try {
+		return await api.get('/activities/public-activities/');
+	}
+	catch (e) {
+		console.log(e)
+		return e
+	}
+}
