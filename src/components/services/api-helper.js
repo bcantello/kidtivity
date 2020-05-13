@@ -8,17 +8,15 @@ const api = axios.create({
 export const createUser = async (user) => {
 	try {
 		return await api.post('/auth/users/register/', user)
-	}
-	catch (err) {
+	} catch (err) {
 		return err
 	}
-}
+};
 
 export const verifyUser = async (user) => {
 	try {
 		return await api.post(`/auth/users/login/`, user);
-	}
-	catch (err) {
+	} catch (err) {
 		return err
 	}
 };
@@ -30,9 +28,26 @@ export const createActivity = async (activity, token) => {
 				authorization: 'JWT ' + token
 			}
 		});
-	}
-	catch (err) {
+	} catch (err) {
 		console.log(err)
 		return err
+	}
+};
+
+export const getPublicActivities = async () => {
+	try {
+		return await api.get('/activities/public-activities/');
+	} catch (e) {
+		console.log(e)
+		return e
+	}
+};
+
+export const getActivityDetails = async (id) => {
+	try {
+		return await api.get(`activities/public-activities/${id}`)
+	} catch (e) {
+		console.log(e);
+		return (e);
 	}
 };

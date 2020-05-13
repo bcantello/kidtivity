@@ -28,6 +28,7 @@ export default function CreateActivity(props) {
 						       type="text"
 						       name="title"
 						       placeholder="TITLE"
+						       maxLength={50}
 						       value={universalContext.newActivity.title}
 						       onChange={universalContext.handleChange} required
 						/>
@@ -36,6 +37,7 @@ export default function CreateActivity(props) {
 						        placeholder="CATEGORY"
 						        value={universalContext.newActivity.category}
 						        onChange={universalContext.handleChange} required>
+							<option value={"category"}>Select an activity category</option>
 							<option value={"Art"}>Art</option>
 							<option value={"Developmental"}>Developmental</option>
 							<option value={"Educational"}>Educational</option>
@@ -47,6 +49,7 @@ export default function CreateActivity(props) {
 						        placeholder="AGE RANGE"
 						        value={universalContext.newActivity.age_range}
 						        onChange={universalContext.handleChange} required>
+							<option value={"Age"}>Select an activity age</option>
 							<option value={"Infant"}>Infant</option>
 							<option value={"Toddler"}>Toddler</option>
 							<option value={"Kindergarten"}>Kindergarten</option>
@@ -59,12 +62,14 @@ export default function CreateActivity(props) {
 						</select>
 						<textarea className="create-activity-Input"
 						          name="summary"
+						          maxLength={160}
 						          placeholder="SUMMARY"
 						          value={universalContext.newActivity.summary}
 						          onChange={universalContext.handleChange} required
 						/>
 						<textarea className="create-activity-Input"
 						          name="supplies"
+						          maxLength={300}
 						          placeholder="SUPPLIES"
 						          value={universalContext.newActivity.supplies}
 						          onChange={universalContext.handleChange} required
