@@ -1,9 +1,31 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import {Link} from "react-router-dom";
+import {UniversalContext} from "../../App";
 import './home.css'
 import ActivityList from "../activities/listActivities/ActivityList";
+import {getPublicActivities} from "../services/api-helper";
 
 export default function Home() {
+	const universalContext = useContext(UniversalContext);
+	let sortedActivities = [];
+
+	const getActivities = async (age) => {
+		await getPublicActivities().then(res => {
+			if (res.status === 200) {
+				res.data.forEach(e => {
+					if (e['age_range'] === age) {
+						sortedActivities.push(e);
+					}
+				});
+				universalContext.setPublicActivities(sortedActivities);
+			} else {
+				console.log("error retrieving public activities")
+			}
+		}).catch(e => {
+			console.log(e);
+		});
+	};
+
 	return<div className="home-container">
 	<div>
 		<meta charSet="utf-8"/>
@@ -54,15 +76,16 @@ export default function Home() {
 
 		<div className="nav-scroller py-1 mb-2">
 			<nav className="nav d-flex justify-content-between">
-				<a className="p-2 text-muted" href="#">Infant</a>
-				<a className="p-2 text-muted" href="#">Toddler</a>
-				<a className="p-2 text-muted" href="#">Kindergarten</a>
-				<a className="p-2 text-muted" href="#">1st Grade</a>
-				<a className="p-2 text-muted" href="#">2nd Grade</a>
-				<a className="p-2 text-muted" href="#">3rd Grade</a>
-				<a className="p-2 text-muted" href="#">4th Grade</a>
-				<a className="p-2 text-muted" href="#">5th Grade</a>
-				<a className="p-2 text-muted" href="#">6th Grade</a>
+				<a className="p-2 text-muted" onClick={() => window.location.reload(true)}>All ages</a>
+				<a className="p-2 text-muted" onClick={() => getActivities('Infant')}>Infant</a>
+				<a className="p-2 text-muted" onClick={() => getActivities('Toddler')}>Toddler</a>
+				<a className="p-2 text-muted" onClick={() => getActivities('Kindergarten')}>Kindergarten</a>
+				<a className="p-2 text-muted" onClick={() => getActivities('First-Grade')}>1st Grade</a>
+				<a className="p-2 text-muted" onClick={() => getActivities('Second-Grade')}>2nd Grade</a>
+				<a className="p-2 text-muted" onClick={() => getActivities('Third-Grade')}>3rd Grade</a>
+				<a className="p-2 text-muted" onClick={() => getActivities('Fourth-Grade')}>4th Grade</a>
+				<a className="p-2 text-muted" onClick={() => getActivities('Fifth-Grade')}>5th Grade</a>
+				<a className="p-2 text-muted" onClick={() => getActivities('Sixth-Grade')}>6th Grade</a>
 			</nav>
 		</div>
 
@@ -79,12 +102,12 @@ export default function Home() {
 		</div>
 	</div>
 
-	<main role="main" className="container">
-		<nav className="blog-pagination">
-			<a className="btn btn-outline-primary" href="#">Older</a>
-			<a className="btn btn-outline-secondary disabled" href="#" tabIndex="-1" aria-disabled="true">Newer</a>
-		</nav>
-	</main>
+	{/*<main role="main" className="container">*/}
+	{/*	<nav className="blog-pagination">*/}
+	{/*		<a className="btn btn-outline-primary" href="#">Older</a>*/}
+	{/*		<a className="btn btn-outline-secondary disabled" href="#" tabIndex="-1" aria-disabled="true">Newer</a>*/}
+	{/*	</nav>*/}
+	{/*</main>*/}
 
 	<footer className="blog-footer">
 		<p>Designed and built by <a href="http://www.brandoncantello.com/" target="_blank" rel="noopener nofollower noreferrer">Brandon Cantello</a> &copy; 2020</p>

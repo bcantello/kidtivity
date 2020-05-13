@@ -66,6 +66,7 @@ function App() {
                     setNewActivity,
                     activityPayload,
                     publicActivities,
+                    setPublicActivities,
                     primaryKey,
                     setPrimaryKey,
                 }
