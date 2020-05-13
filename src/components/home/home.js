@@ -54,6 +54,7 @@ export default function Home() {
 
 		<div className="nav-scroller py-1 mb-2">
 			<nav className="nav d-flex justify-content-between">
+				<a className="p-2 text-muted" href="#">All ages</a>
 				<a className="p-2 text-muted" href="#">Infant</a>
 				<a className="p-2 text-muted" href="#">Toddler</a>
 				<a className="p-2 text-muted" href="#">Kindergarten</a>
