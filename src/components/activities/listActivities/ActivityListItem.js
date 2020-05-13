@@ -14,20 +14,9 @@ export default function ActivityListItem(props) {
 					<a href="#" className="stretched-link">Continue reading</a>
 				</div>
 				<div className="col-auto d-none d-lg-block">
-					<svg className="bd-placeholder-img"
-					     width="200"
-					     height="250"
-					     xmlns={"http://www.w3.org/2000/svg"}
-					     preserveAspectRatio="xMidYMid slice"
-					     focusable="false"
-					     role="img"
-					     aria-label="Placeholder: Thumbnail">
-						<title>Placeholder</title>
-						<rect width="100%"
-						      height="100%"
-						      fill="#57505c"/>
-						<text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-					</svg>
+					<div>
+						<img src={props.element.image}  width="200" height="250" alt={'Unable to load image'}/>
+					</div>
 				</div>
 			</div>
 		</div>

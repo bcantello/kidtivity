@@ -28,6 +28,7 @@ export default function CreateActivity(props) {
 						       type="text"
 						       name="title"
 						       placeholder="TITLE"
+						       maxLength={50}
 						       value={universalContext.newActivity.title}
 						       onChange={universalContext.handleChange} required
 						/>
@@ -59,12 +60,14 @@ export default function CreateActivity(props) {
 						</select>
 						<textarea className="create-activity-Input"
 						          name="summary"
+						          maxLength={160}
 						          placeholder="SUMMARY"
 						          value={universalContext.newActivity.summary}
 						          onChange={universalContext.handleChange} required
 						/>
 						<textarea className="create-activity-Input"
 						          name="supplies"
+						          maxLength={300}
 						          placeholder="SUPPLIES"
 						          value={universalContext.newActivity.supplies}
 						          onChange={universalContext.handleChange} required
