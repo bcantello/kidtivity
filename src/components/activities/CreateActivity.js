@@ -37,6 +37,7 @@ export default function CreateActivity(props) {
 						        placeholder="CATEGORY"
 						        value={universalContext.newActivity.category}
 						        onChange={universalContext.handleChange} required>
+							<option value={"category"}>Select an activity category</option>
 							<option value={"Art"}>Art</option>
 							<option value={"Developmental"}>Developmental</option>
 							<option value={"Educational"}>Educational</option>
@@ -48,6 +49,7 @@ export default function CreateActivity(props) {
 						        placeholder="AGE RANGE"
 						        value={universalContext.newActivity.age_range}
 						        onChange={universalContext.handleChange} required>
+							<option value={"Age"}>Select an activity age</option>
 							<option value={"Infant"}>Infant</option>
 							<option value={"Toddler"}>Toddler</option>
 							<option value={"Kindergarten"}>Kindergarten</option>

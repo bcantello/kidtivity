@@ -1,7 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
+import {UniversalContext} from "../../../App";
+import history from "../../../history";
 
 export default function ActivityListItem(props) {
-	console.log("FROM LIST ITEM: ",props.element)
+	const universalContext = useContext(UniversalContext);
+
+	const handleClick = () => {
+		universalContext.setPrimaryKey(props.element.id);
+		history.push("/activity");
+	};
+
 	return (
 		<div className="col-md-6">
 			<div
@@ -9,9 +17,10 @@ export default function ActivityListItem(props) {
 				<div className="col p-4 d-flex flex-column position-static">
 					<strong className="d-inline-block mb-2 text-primary">{props.element.category}</strong>
 					<h3 className="mb-0">{props.element.title}</h3>
-					<div className="mb-1 text-muted">{props.element['created_at']}</div>
+					{/*<div className="mb-1 text-muted">{props.element['updated_at']}</div>*/}
+					<br/>
 					<p className="card-text mb-auto">{props.element.summary}</p>
-					<a href="#" className="stretched-link">Continue reading</a>
+					<a onClick={handleClick} className="stretched-link">Continue reading</a>
 				</div>
 				<div className="col-auto d-none d-lg-block">
 					<div>

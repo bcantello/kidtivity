@@ -4,6 +4,7 @@ import Home from "./home/home";
 import SignUp from "./authentication/SignUp";
 import Login from "./authentication/Login";
 import CreateActivity from "./activities/CreateActivity";
+import Activity from "./activities/Activity";
 
 export default function Main() {
 	return (
@@ -13,6 +14,7 @@ export default function Main() {
 			<Route exact path="/login" component={Login}/>
 			<Route path="/signup" component={SignUp}/>
 			<Route path="/create-activity" component={CreateActivity}/>
+			<Route path="/activity" component={Activity}/>
 			{/*<Route exact path="/our-team" component={About} />*/}
 			<Redirect to='/home'/>
 		</Switch>

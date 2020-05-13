@@ -6,7 +6,8 @@ import {getPublicActivities} from "./components/services/api-helper";
 function App() {
     const [imageLink, setImageLink] = useState("");
     const [publicActivities, setPublicActivities] = useState([]);
-    console.log(publicActivities);
+    const [primaryKey, setPrimaryKey] = useState(0)
+    console.log(primaryKey)
     const [userInfo, setUserInfo] = useState(() => {
         const result = localStorage.getItem('user');
         return result ? JSON.parse(result) : []
@@ -65,6 +66,8 @@ function App() {
                     setNewActivity,
                     activityPayload,
                     publicActivities,
+                    primaryKey,
+                    setPrimaryKey,
                 }
             }>
                 <Main/>

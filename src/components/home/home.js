@@ -43,7 +43,7 @@ export default function Home() {
 					<Link className="text-muted" to="/create-activity">Post activity</Link>
 				</div>
 				<div className="col-4 text-center">
-					<a className="blog-header-logo text-dark" href="#">Kidtivity</a>
+					<a className="blog-header-logo text-dark" href="#"></a>
 				</div>
 				<div className="col-4 d-flex justify-content-end align-items-center">
 					<a className="text-muted" href="#" aria-label="Search">
@@ -86,9 +86,9 @@ export default function Home() {
 
 		<div className="jumbotron p-4 p-md-5 text-white rounded bg-dark">
 			<div className="col-md-6 px-0">
-				<h1 className="display-4 font-italic">Title of a longer featured blog post</h1>
-				<p className="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-				<p className="lead mb-0"><a href="#" className="text-white font-weight-bold">Continue reading...</a></p>
+				<h1 className="display-4 font-italic">Kidtivity</h1>
+				<p className="lead my-3">Community generated developmental, learning, and entertaining activities for kids</p>
+				{/*<p className="lead mb-0"><a href="#" className="text-white font-weight-bold">Continue reading...</a></p>*/}
 			</div>
 		</div>
 
