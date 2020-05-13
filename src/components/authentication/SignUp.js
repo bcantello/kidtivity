@@ -24,7 +24,6 @@ export default function SignUp(props) {
 		await createUser(newUser).then(response => {
 			console.log(response.status)
 			if (response.status === 201) {
-				console.log("I'm in here")
 				universalContext.setUserInfo(response.data)
 				localStorage.setItem('user', JSON.stringify((response.data)))
 				props.history.push("/home");
