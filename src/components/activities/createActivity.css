@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.col-md-6:hover{
+    cursor: pointer;
+}
+
 .auth-body {
     background-position: center;
     background-repeat: no-repeat;
@@ -87,6 +91,9 @@
 
 #activity-details-title {
     font-size: 4em;
+    line-height: 1em;
+    margin-bottom: 1em;
+    margin-top: .5em;
 }
 
 #activity-details-summary {
@@ -96,10 +103,8 @@
 }
 
 #activity-details-container img {
-    height: 500px;
-    width: 400px;
-    float: right;
-    margin-left: 2em;
+    height: 415px;
+    width: 332px;
 }
 
 #activity-details-content-container {
@@ -128,6 +133,13 @@
 }
 
 @media(min-width: 768px) {
+    #activity-details-container img {
+        height: 500px;
+        width: 400px;
+        float: right;
+        margin-left: 2em;
+    }
+
     .create-activity-container {
         width: 50%;
     }
@@ -138,6 +150,13 @@
 }
 
 @media(min-width: 1024px) {
+    #activity-details-container img {
+        height: 500px;
+        width: 400px;
+        float: right;
+        margin-left: 2em;
+    }
+
     .create-activity h1 {
         font-size: 1.25em;
     }

@@ -17,7 +17,7 @@ export default function ActivityListItem(props) {
 					<div className="mb-1 text-muted">{props.element.category}</div>
 					{/*<br/>*/}
 					<p className="card-text mb-auto">{props.element.summary}</p>
-					<a onClick={handleClick} className="stretched-link">Continue reading</a>
+					<a onClick={handleClick} className="stretched-link"/>
 				</div>
 				<div className="col-auto d-none d-lg-block">
 					<div>
