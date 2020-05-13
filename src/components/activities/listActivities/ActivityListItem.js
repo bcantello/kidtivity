@@ -1,12 +1,9 @@
-import React, {useContext} from "react";
-import {UniversalContext} from "../../../App";
+import React from "react";
 import history from "../../../history";
 
 export default function ActivityListItem(props) {
-	const universalContext = useContext(UniversalContext);
-
 	const handleClick = () => {
-		universalContext.setPrimaryKey(props.element.id);
+		localStorage.setItem('primaryKey', props.element.id)
 		history.push("/activity");
 	};
 

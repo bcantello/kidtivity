@@ -1,15 +1,13 @@
-import React, {useContext, useEffect, useState} from "react";
-import {UniversalContext} from "../../App";
+import React, {useEffect, useState} from "react";
 import {getActivityDetails} from "../services/api-helper";
+import './createActivity.css'
 
 export default function Activity() {
-	const universalContext = useContext(UniversalContext);
-	const pk = universalContext.primaryKey;
 	const [activityDetail, setActivityDetail] = useState([]);
 
 	useEffect(() => {
 		const getActivity = async () => {
-			await getActivityDetails(pk).then(res => {
+			await getActivityDetails(localStorage.getItem("primaryKey")).then(res => {
 				if (res.status === 200) {
 					setActivityDetail(res.data)
 				} else {
@@ -20,15 +18,21 @@ export default function Activity() {
 			});
 		};
 		getActivity();
-	}, [pk]);
+	}, [localStorage.getItem("primaryKey")]);
 
 	return (
 		<div id={"activity-details-container"}>
 			<div id={"activity-details-title"}>{activityDetail.title}</div>
 			<div id={"activity-details-summary"}>{activityDetail.summary}</div>
-			<img src={activityDetail.image} alt={"unable to load activity image"}/>
-			<div id={"activity-details-supplies"}>{activityDetail.supplies}</div>
-			<div id={"activity-details-body"}>{activityDetail.body}</div>
+			<br/>
+			<br/>
+			<div id={"activity-details-content-container"}>
+				<img src={activityDetail.image} alt={"unable to load activity image"}/>
+				<h4 id={"supplies-title"}>Required supplies:</h4>
+				<div id={"activity-details-supplies"}>{activityDetail.supplies}</div>
+				<h4 id={"body-title"}>Activity:</h4>
+				<div id={"activity-details-body"}>{activityDetail.body}</div>
+			</div>
 		</div>
 	);
 };
