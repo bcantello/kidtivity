@@ -21,7 +21,6 @@ export default function SignUp(props) {
 		last_name: "",
 		password: "",
 	});
-	console.log(error)
 
 	const validEmailRegex =
 		RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
