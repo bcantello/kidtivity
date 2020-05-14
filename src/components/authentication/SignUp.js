@@ -74,7 +74,8 @@ export default function SignUp(props) {
 				localStorage.setItem('user', JSON.stringify((response.data)))
 				props.history.push("/home");
 			} else {
-				document.getElementById('error-response').innerHTML = "Submission failed. Please ensure all fields are filled out correctly"
+				document.getElementById('error-response')
+					.innerHTML = "Submission failed. Please ensure all fields are filled out correctly"
 			}
 		}).catch(error => {
 			return(error);

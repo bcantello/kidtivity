@@ -27,8 +27,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
-}
+    min-height: calc(100vh - 32px);}
 
 .create-activity-container {
     width: 85%;
@@ -160,6 +159,10 @@
 }
 
 @media(min-width: 768px) {
+    .create-activity-wrapper {
+        min-height: calc(100vh - 63px);
+    }
+
     #activity-details-container img {
         height: 500px;
         width: 400px;
