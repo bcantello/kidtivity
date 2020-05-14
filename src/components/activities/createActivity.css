@@ -27,8 +27,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
-}
+    min-height: calc(100vh - 32px);}
 
 .create-activity-container {
     width: 85%;
@@ -85,6 +84,11 @@
 .create-activity-form-button:hover {
     cursor: pointer;
     opacity: .90;
+    background-color: #c14729;
+}
+
+.upload-image-btn:hover {
+    opacity: 80%;
 }
 
 #activity-details-container {
@@ -120,13 +124,31 @@
     margin-bottom: 2em;
 }
 
-@media(min-width: 375px) {
+@media(min-width: 375px) and (max-width: 424px) {
+    .create-activity-container {
+        margin-top: -1.5em;
+    }
+
     .create-activity h1 {
-        font-size: 1.5em;
+        font-size: 2em;
+        margin-bottom: -.5em;
+        margin-top: -.5em;
     }
 
     .create-activity-Input {
         width: 75%;
+        font-size: 10px;
+    }
+
+    button {
+        border-radius: 5px;
+        font-size: 12px;
+    }
+
+    .create-activity-form-button {
+        width: 100px;
+        border-radius: 5px;
+        font-size: 15px;
     }
 }
 
@@ -137,6 +159,10 @@
 }
 
 @media(min-width: 768px) {
+    .create-activity-wrapper {
+        min-height: calc(100vh - 63px);
+    }
+
     #activity-details-container img {
         height: 500px;
         width: 400px;
@@ -145,11 +171,13 @@
     }
 
     .create-activity-container {
-        width: 50%;
+        width: 80%;
+        max-width: 800px;
+        margin-top: -7em;
     }
 
     .create-activity h1 {
-        font-size: 1.25em;
+        font-size: 2.5em;
     }
 }
 
@@ -162,7 +190,7 @@
     }
 
     .create-activity h1 {
-        font-size: 1.25em;
+        font-size: 3em;
     }
 
     .create-activity-Input {

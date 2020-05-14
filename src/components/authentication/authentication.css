@@ -17,22 +17,13 @@
     padding-right: 20px;
 }
 
-.Login-Container {
+.Login-Container, .SignUp-Container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
-}
-
-.SignUp-Container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
+    min-height: calc(100vh - 32px);
 }
 
 .Login, .SignUp {
@@ -46,6 +37,7 @@
 
 .error {
     color: red;
+    font-size: 10px;
 }
 
 .User-Login h1 {
@@ -57,7 +49,8 @@
 .Create-Account h1 {
     color: #5E5D5D;
     padding: 30px;
-    font-size: 1em;
+    font-size: 1.5em;
+    margin-bottom: -.75em;
 }
 
 .Login-Form, .SignUp-Form {
@@ -81,6 +74,7 @@
 .SignUp-Form-Input {
     font-weight: 400;
     font-family: Roboto, serif;
+    font-size: 12px;
     color: #6A6A6A;
     width: 85%;
     padding: 12px 20px;
@@ -100,7 +94,7 @@
     background-color: #e56c4e;
     padding: 10px 15px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 500;
     letter-spacing: 1.4px;
     align-items: center;
@@ -175,19 +169,50 @@ p.login-prompt > a:hover {
     }
 }
 
-@media(min-width: 768px) {
+@media(min-width: 768px) and (max-width: 1023px) {
     .Login, .SignUp {
-        width: 50%;
+        width: 75%;
+        margin-top: -6em;
+    }
+
+    .Login-Container, .SignUp-Container {
+        min-height: calc(100vh - 63px);
     }
 
     .User-Login, .Create-Account h1 {
-        font-size: 1.25em;
+        font-size: 2.5em;
+        margin-bottom: 1px;
+    }
+
+    .error {
+        font-size: 12px;
+    }
+
+    .Login-Form-Input {
+        font-size: 15px;
+    }
+
+    .SignUp-Form-Input {
+        font-size: 15px;
     }
 }
 
 @media(min-width: 1024px) {
+    .Login, .SignUp {
+        max-width: 800px;
+        margin-top: -6em;
+    }
+
+    .Login-Container, .SignUp-Container {
+        min-height: calc(100vh - 63px);
+    }
+
     .User-Login, .Create-Account h1 {
-        font-size: 1.25em;
+        font-size: 2.5em;
+    }
+
+    .error {
+        font-size: 13px;
     }
 
     .Login-Form-Input, .SignUp-Form-Input {
