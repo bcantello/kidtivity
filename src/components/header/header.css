@@ -1,4 +1,11 @@
 .header-button-container {
     display: flex;
     flex-direction: row-reverse;
+    margin-right: 22px;
+}
+
+@media(min-width: 375px) and (max-width: 424px) {
+    .header-button-container {
+        margin-bottom: -2em;
+    }
 }
