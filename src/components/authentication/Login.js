@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {UniversalContext} from "../../App";
 import {verifyUser} from "../services/api-helper";
 import './authentication.css'
+import Header from "../header/header";
 
 export default function Login(props) {
 	const universalContext = useContext(UniversalContext)
@@ -34,6 +35,9 @@ export default function Login(props) {
 	return (
 		<div className="auth-body">
 			<div className="Login-Container">
+				<div className={'login-header'}>
+					<Header/>
+				</div>
 				<div className="Login">
 					<div className="User-Login"><h1>user login</h1></div>
 					<form className="Login-Form" onSubmit={handleSubmit}>
