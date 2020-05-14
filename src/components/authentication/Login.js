@@ -34,10 +34,10 @@ export default function Login(props) {
 
 	return (
 		<div className="auth-body">
+			<div className={'auth-header'}>
+				<Header/>
+			</div>
 			<div className="Login-Container">
-				<div className={'login-header'}>
-					<Header/>
-				</div>
 				<div className="Login">
 					<div className="User-Login"><h1>user login</h1></div>
 					<form className="Login-Form" onSubmit={handleSubmit}>

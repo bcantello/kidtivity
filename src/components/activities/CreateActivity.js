@@ -21,10 +21,10 @@ export default function CreateActivity(props) {
 
 	return (
 		<div className="auth-body">
+			<div className={'create-header'}>
+				<Header/>
+			</div>
 			<div className="create-activity-wrapper">
-				<div className={'create-header'}>
-					<Header/>
-				</div>
 				<div className="create-activity-container">
 					<div className="create-activity"><h1>create activity</h1></div>
 					<form className="create-activity-form">

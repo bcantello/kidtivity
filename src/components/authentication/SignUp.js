@@ -38,10 +38,10 @@ export default function SignUp(props) {
 
 	return(
 		<div className="auth-body">
+			<div className={'auth-header'}>
+				<Header/>
+			</div>
 			<div className="SignUp-Container">
-				<div className={'signup-header'}>
-					<Header/>
-				</div>
 				<div className="SignUp">
 					<div className="Create-Account"><h1>create account</h1></div>
 					<form onSubmit={handleSubmit} className="SignUp-Form">
