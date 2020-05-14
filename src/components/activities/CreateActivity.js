@@ -64,13 +64,19 @@ export default function CreateActivity(props) {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		await createActivity(universalContext.activityPayload, universalContext.userInfo.token).then(response => {
-			if (response.status === 201) {
-				props.history.push("/home");
-			}
-		}).catch(error => {
-			return(error);
-		});
+		if (universalContext.userInfo.token) {
+			await createActivity(universalContext.activityPayload, universalContext.userInfo.token).then(response => {
+				if (response.status === 201) {
+					props.history.push("/home");
+				} else {
+					document.getElementById('error-response').innerHTML = "Submission failed. Please ensure all fields are filled out correctly"
+				}
+			}).catch(error => {
+				return(error);
+			});
+		} else {
+			document.getElementById('error-response').innerHTML = "You must be logged in to post an activity"
+		}
 	};
 
 	return (
@@ -88,7 +94,6 @@ export default function CreateActivity(props) {
 						       placeholder="TITLE"
 						       maxLength={50}
 						       value={universalContext.newActivity.title}
-						       // onChange={universalContext.handleChange} required
 						       onChange={handleChange} required
 						/>
 						{error.title.length > 0 &&
@@ -97,7 +102,6 @@ export default function CreateActivity(props) {
 						        name="category"
 						        placeholder="CATEGORY"
 						        value={universalContext.newActivity.category}
-						        // onChange={universalContext.handleChange} required>
 								onChange={handleChange} required>
 							<option value={"Select an activity category"}>Select an activity category</option>
 							<option value={"Art"}>Art</option>
@@ -112,7 +116,6 @@ export default function CreateActivity(props) {
 						        name="age_range"
 						        placeholder="AGE RANGE"
 						        value={universalContext.newActivity.age_range}
-						        // onChange={universalContext.handleChange} required>
 								onChange={handleChange} required>
 							<option value={"Select an activity age"}>Select an activity age</option>
 							<option value={"Infant"}>Infant</option>
@@ -132,7 +135,6 @@ export default function CreateActivity(props) {
 						          maxLength={160}
 						          placeholder="SUMMARY"
 						          value={universalContext.newActivity.summary}
-						          // onChange={universalContext.handleChange} required
 						          onChange={handleChange} required
 						/>
 						{error.summary.length > 0 &&
@@ -142,7 +144,6 @@ export default function CreateActivity(props) {
 						          maxLength={300}
 						          placeholder="SUPPLIES"
 						          value={universalContext.newActivity.supplies}
-						          // onChange={universalContext.handleChange} required
 						          onChange={handleChange} required
 						/>
 						{error.supplies.length > 0 &&
@@ -151,7 +152,6 @@ export default function CreateActivity(props) {
 						          name="body"
 						          placeholder="BODY"
 						          value={universalContext.newActivity.body}
-						          // onChange={universalContext.handleChange} required
 						          onChange={handleChange} required
 						/>
 						{error.body.length > 0 &&
@@ -159,6 +159,7 @@ export default function CreateActivity(props) {
 					</form>
 					<CloudinaryUpload/>
 					<button className="create-activity-form-button" onClick={handleSubmit}>submit</button>
+					<div id={'error-response'}></div>
 				</div>
 			</div>
 		</div>

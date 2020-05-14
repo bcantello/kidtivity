@@ -46,7 +46,7 @@ export default function Login(props) {
 				localStorage.setItem('user', JSON.stringify((response.data)))
 				props.history.push("/home");
 			} else {
-				console.log('login error')
+				document.getElementById('error-response').innerHTML = "Submission failed. Please ensure all fields are filled out correctly"
 			}
 		}).catch(error => {
 			console.log("registration error", error)
@@ -81,6 +81,7 @@ export default function Login(props) {
 						{error.password.length > 0 &&
 						<span className='error'>{error.password}</span>}
 						<button className="Login-Form-Button" type="submit">continue</button>
+						<div id={'error-response'}></div>
 					</form>
 					<p className="login-prompt">Don't have an account? <Link to="/signup">Create one!</Link></p>
 				</div>

@@ -48,11 +48,6 @@ function App() {
         getActivities();
     }, []);
 
-    const handleChange = (e) => {
-        const value = e.target.value
-        setNewActivity({...newActivity, [e.target.name]: value});
-    };
-
     return (
         <div className="App">
             <UniversalContext.Provider value={
@@ -61,7 +56,6 @@ function App() {
                     setUserInfo,
                     imageLink,
                     setImageLink,
-                    handleChange,
                     newActivity,
                     setNewActivity,
                     activityPayload,
