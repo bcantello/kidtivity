@@ -11,10 +11,31 @@ export default function Login(props) {
 		username: "",
 		password: "",
 	});
+	const [error, setError] = useState({
+		username: "",
+		password: "",
+	});
 
 	const handleChange = (e) => {
-		const value = e.target.value
-		setUser({...User, [e.target.name]: value});
+		const { name, value } = e.target;
+		switch (name) {
+			case 'username':
+				error.username =
+					value.length < 5
+						? 'Username must be at least 5 characters long!'
+						: '';
+				break;
+			case 'password':
+				error.password =
+					value.length < 8
+						? 'Password must be at least 8 characters long!'
+						: '';
+				break;
+			default:
+				break;
+		}
+		setError({...error, [value]: name});
+		setUser({...User, [name]: value});
 	};
 
 	const handleSubmit = async (e) => {
@@ -48,6 +69,8 @@ export default function Login(props) {
 						       value={User.username}
 						       onChange={handleChange} required
 						/>
+						{error.username.length > 0 &&
+						<span className='error'>{error.username}</span>}
 						<input className="Login-Form-Input"
 						       type="password"
 						       name="password"
@@ -55,6 +78,8 @@ export default function Login(props) {
 						       value={User.password}
 						       onChange={handleChange} required
 						/>
+						{error.password.length > 0 &&
+						<span className='error'>{error.password}</span>}
 						<button className="Login-Form-Button" type="submit">continue</button>
 					</form>
 					<p className="login-prompt">Don't have an account? <Link to="/signup">Create one!</Link></p>

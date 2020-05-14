@@ -21,6 +21,7 @@ export default function SignUp(props) {
 		last_name: "",
 		password: "",
 	});
+	console.log(error)
 
 	const validEmailRegex =
 		RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
@@ -61,7 +62,7 @@ export default function SignUp(props) {
 			default:
 				break;
 		}
-		setError({...error, [e.target.first_name]: name});
+		setError({...error, [value]: name});
 		setNewUser({...newUser, [name]: value});
 	};
 
