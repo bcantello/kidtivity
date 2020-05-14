@@ -7,7 +7,6 @@ function App() {
     const [imageLink, setImageLink] = useState("");
     const [publicActivities, setPublicActivities] = useState([]);
     const [primaryKey, setPrimaryKey] = useState(0)
-    console.log(primaryKey)
     const [userInfo, setUserInfo] = useState(() => {
         const result = localStorage.getItem('user');
         return result ? JSON.parse(result) : []
