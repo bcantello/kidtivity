@@ -10,7 +10,7 @@ export default function ActivityListItem(props) {
 	return (
 		<div className="col-md-6">
 			<div
-				className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+				className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" id={"activity-tile"}>
 				<div className="col p-4 d-flex flex-column position-static">
 					<strong className="d-inline-block mb-2 text-primary">{props.element['age_range']}</strong>
 					<h3 className="mb-0">{props.element.title}</h3>

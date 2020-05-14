@@ -79,7 +79,7 @@ export default function Home() {
 		<div className="jumbotron p-4 p-md-5 text-white rounded bg-dark">
 			<div className="col-md-6 px-0">
 				<h1 className="display-4 font-italic">Kidtivity</h1>
-				<p className="lead my-3">Community generated developmental, learning, and entertaining activities for kids</p>
+				<p className="lead my-3">A free to use site for crowd sourcing artistic, developmental, and educational activities for children</p>
 				{/*<p className="lead mb-0"><a href="#" className="text-white font-weight-bold">Continue reading...</a></p>*/}
 			</div>
 		</div>
