@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {createUser} from "../services/api-helper";
 import {UniversalContext} from "../../App";
 import './authentication.css'
+import Header from "../header/header";
 
 export default function SignUp(props) {
 	const universalContext = useContext(UniversalContext)
@@ -37,6 +38,9 @@ export default function SignUp(props) {
 
 	return(
 		<div className="auth-body">
+			<div className={'auth-header'}>
+				<Header/>
+			</div>
 			<div className="SignUp-Container">
 				<div className="SignUp">
 					<div className="Create-Account"><h1>create account</h1></div>

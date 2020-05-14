@@ -1,8 +1,8 @@
-import React, {useContext, useEffect} from "react";
-import {Link} from "react-router-dom";
+import React, {useContext} from "react";
 import {UniversalContext} from "../../App";
 import './home.css'
 import ActivityList from "../activities/listActivities/ActivityList";
+import Header from "../header/header";
 import {getPublicActivities} from "../services/api-helper";
 
 export default function Home() {
@@ -59,20 +59,7 @@ export default function Home() {
 		<meta name="theme-color" content="#563d7c"/>
 	</div>
 	<div className="container">
-		<header className="blog-header py-3">
-			<div className="row flex-nowrap justify-content-between align-items-center">
-				<div className="col-4 pt-1">
-					<Link className="text-muted" to="/create-activity">Post activity</Link>
-				</div>
-				<div className="col-4 text-center">
-					<a className="blog-header-logo text-dark" href="#"></a>
-				</div>
-				<div className="col-4 d-flex justify-content-end align-items-center">
-					<a className="btn btn-sm btn-outline-secondary" href="/login">Log in</a>
-					<a className="btn btn-sm btn-outline-secondary" href="/signup">Sign up</a>
-				</div>
-			</div>
-		</header>
+		<Header/>
 
 		<div className="nav-scroller py-1 mb-2">
 			<nav className="nav d-flex justify-content-between">

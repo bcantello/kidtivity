@@ -13,6 +13,10 @@
     min-width: 320px;
 }
 
+.auth-header {
+    padding-right: 20px;
+}
+
 .Login-Container {
     display: flex;
     flex-direction: column;

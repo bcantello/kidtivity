@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {getActivityDetails} from "../services/api-helper";
 import './createActivity.css'
+import Header from "../header/header";
 
 export default function Activity() {
 	const [activityDetail, setActivityDetail] = useState([]);
@@ -22,6 +23,7 @@ export default function Activity() {
 
 	return (
 		<div id={"activity-details-container"}>
+			<Header/>
 			<div id={"activity-details-title"}>{activityDetail.title}</div>
 			<div id={"activity-details-summary"}>{activityDetail.summary}</div>
 			<br/>
