@@ -44,6 +44,10 @@
     text-align: center;
 }
 
+.error {
+    color: red;
+}
+
 .User-Login h1 {
     color: #5E5D5D;
     padding: 30px 0 10px 0;

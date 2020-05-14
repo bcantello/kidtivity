@@ -14,10 +14,55 @@ export default function SignUp(props) {
 		last_name: "",
 		password: "",
 	});
+	const [error, setError] = useState({
+		username: "",
+		email: "",
+		first_name: "",
+		last_name: "",
+		password: "",
+	});
+
+	const validEmailRegex =
+		RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 
 	const handleChange = (e) => {
-		const value = e.target.value
-		setNewUser({...newUser, [e.target.name]: value});
+		const { name, value } = e.target;
+		switch (name) {
+			case 'username':
+				error.username =
+					value.length < 5
+						? 'Username must be at least 5 characters long!'
+						: '';
+				break;
+			case 'email':
+				error.email =
+					validEmailRegex.test(value)
+						? ''
+						: 'This is not a valid email!';
+				break;
+			case 'first_name':
+				error.first_name =
+					value.length < 2
+						? 'First Name must be greater than 2 letters!'
+						: '';
+				break;
+			case 'last_name':
+				error.last_name =
+					value.length < 2
+						? 'Last Name must be greater than 2 letters!'
+						: '';
+				break;
+			case 'password':
+				error.password =
+					value.length < 8
+						? 'Password must be at least 8 characters long!'
+						: '';
+				break;
+			default:
+				break;
+		}
+		setError({...error, [value]: name});
+		setNewUser({...newUser, [name]: value});
 	};
 
 	const handleSubmit = async (e) => {
@@ -29,7 +74,7 @@ export default function SignUp(props) {
 				localStorage.setItem('user', JSON.stringify((response.data)))
 				props.history.push("/home");
 			} else {
-				console.log('account creation error')
+				document.getElementById('error-response').innerHTML = "Submission failed. Please ensure all fields are filled out correctly"
 			}
 		}).catch(error => {
 			return(error);
@@ -52,6 +97,8 @@ export default function SignUp(props) {
 						       value={newUser.username}
 						       onChange={handleChange} required
 							/>
+						{error.username.length > 0 &&
+						<span className='error'>{error.username}</span>}
 						<input className="SignUp-Form-Input"
 						       type="email"
 						       name="email"
@@ -59,6 +106,8 @@ export default function SignUp(props) {
 						       value={newUser.email}
 						       onChange={handleChange} required
 							/>
+						{error.email.length > 0 &&
+						<span className='error'>{error.email}</span>}
 						<input className="SignUp-Form-Input"
 						       type="text"
 						       name="first_name"
@@ -66,6 +115,8 @@ export default function SignUp(props) {
 						       value={newUser.first_name}
 						       onChange={handleChange} required
 							/>
+						{error.first_name.length > 0 &&
+						<span className='error'>{error.first_name}</span>}
 						<input className="SignUp-Form-Input"
 						       type="text"
 						       name="last_name"
@@ -73,6 +124,8 @@ export default function SignUp(props) {
 						       value={newUser.last_name}
 						       onChange={handleChange} required
 							/>
+						{error.last_name.length > 0 &&
+						<span className='error'>{error.last_name}</span>}
 						<input className="SignUp-Form-Input"
 						       type="password"
 						       name="password"
@@ -80,7 +133,10 @@ export default function SignUp(props) {
 						       value={newUser.password}
 						       onChange={handleChange} required
 							/>
+						{error.password.length > 0 &&
+						<span className='error'>{error.password}</span>}
 						<button className="SignUp-Form-Button" type="submit">register</button>
+						<div id={'error-response'}></div>
 					</form>
 					<p className="login-prompt">Already have an account? <Link to="/login">Log in!</Link></p>
 				</div>
