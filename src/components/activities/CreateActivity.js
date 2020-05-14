@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import {createActivity} from "../services/api-helper"
 import {UniversalContext} from "../../App";
 import CloudinaryUpload from "../imageUpload/CloudinaryUpload";
