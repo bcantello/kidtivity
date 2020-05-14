@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+#activity-tile {
+    background-color: rgba(249, 247, 247, 0.9)
+}
+
 .col-md-6:hover{
     cursor: pointer;
 }
@@ -17,7 +21,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #a3f3ff;
+    background-color: #66c2ff;
     min-width: 320px;
 }
 
