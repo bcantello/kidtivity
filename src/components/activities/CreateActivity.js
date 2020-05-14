@@ -3,6 +3,7 @@ import {createActivity} from "../services/api-helper"
 import {UniversalContext} from "../../App";
 import CloudinaryUpload from "../imageUpload/CloudinaryUpload";
 import './createActivity.css'
+import Header from "../header/header";
 
 export default function CreateActivity(props) {
 	const universalContext = useContext(UniversalContext);
@@ -20,6 +21,9 @@ export default function CreateActivity(props) {
 
 	return (
 		<div className="auth-body">
+			<div className={'create-header'}>
+				<Header/>
+			</div>
 			<div className="create-activity-wrapper">
 				<div className="create-activity-container">
 					<div className="create-activity"><h1>create activity</h1></div>
