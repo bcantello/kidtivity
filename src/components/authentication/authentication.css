@@ -9,12 +9,12 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #e6f3ff;
+    background-color: #98C9F2;
     min-width: 320px;
 }
 
 .auth-header {
-    padding-right: 20px;
+    padding-left: 20px;
 }
 
 .Login-Container, .SignUp-Container {
@@ -84,36 +84,17 @@
     background: #ffffff;
 }
 
-.SignUp-Form-Button {
+.SignUp-Form-Button, .Login-Form-Button {
     color:#ffffff;
     font-family: Roboto, serif;
     border: none;
     border-radius: 1px;
     width: 20%;
     margin: 20px 0 8px 0;
-    background-color: #e56c4e;
+    background-color: #E8554E;
     padding: 10px 15px;
     text-align: center;
     font-size: 1em;
-    font-weight: 500;
-    letter-spacing: 1.4px;
-    align-items: center;
-    align-content: center;
-    align-self: center;
-    justify-content: center;
-}
-
-.Login-Form-Button {
-    color:#ffffff;
-    font-family: Roboto, serif;
-    border: none;
-    border-radius: 1px;
-    width: 20%;
-    margin: 20px 0 8px 0;
-    background-color: #e56c4e;
-    padding: 10px 15px;
-    text-align: center;
-    font-size: 1.2em;
     font-weight: 500;
     letter-spacing: 1.4px;
     align-items: center;

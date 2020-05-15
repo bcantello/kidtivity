@@ -1,5 +1,5 @@
 .home-container {
-    background-color: white;
+    background-color: #98C9F2;
 }
 
 .btn {
@@ -8,4 +8,24 @@
 
 .nav a {
     cursor: pointer;
+}
+
+#banner-logo {
+    height: 1em;
+}
+
+.blog-footer {
+    padding-bottom: 20px;
+}
+
+.display-4 {
+    color: #F4D761;
+}
+
+.lead {
+    color: #F4D761;
+}
+
+.jumbotron {
+    background-color: #3D405B;
 }

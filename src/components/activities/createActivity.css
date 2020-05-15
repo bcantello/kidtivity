@@ -21,7 +21,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #66c2ff;
+    background-color: #98C9F2;
     min-width: 320px;
 }
 
@@ -73,7 +73,7 @@
     border-radius: 1px;
     width: 20%;
     margin: 20px 0 8px 0;
-    background-color: #e56c4e;
+    background-color: #E8554E;
     padding: 10px 15px;
     text-align: center;
     font-size: 1.2em;
@@ -91,8 +91,12 @@
     background-color: #c14729;
 }
 
+.upload-image-btn {
+    background-color: #3D405B;
+}
+
 .upload-image-btn:hover {
-    opacity: 80%;
+    opacity: .80;
 }
 
 #activity-details-container {
@@ -114,7 +118,7 @@
     margin: 0 auto;
 }
 
-#activity-details-container img {
+#activity-image {
     height: 415px;
     width: 332px;
 }
@@ -167,7 +171,7 @@
         min-height: calc(100vh - 63px);
     }
 
-    #activity-details-container img {
+    #activity-image {
         height: 500px;
         width: 400px;
         float: right;
@@ -186,7 +190,7 @@
 }
 
 @media(min-width: 1024px) {
-    #activity-details-container img {
+    #activity-image {
         height: 500px;
         width: 400px;
         float: right;
