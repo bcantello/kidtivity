@@ -21,7 +21,7 @@ export default function ActivityListItem(props) {
 				</div>
 				<div className="col-auto d-none d-lg-block">
 					<div>
-						<img src={props.element.image}  width="200" height="250" alt={'Unable to load image'}/>
+						<img src={props.element.image}  width="200" height="250" alt={props.element.title}/>
 					</div>
 				</div>
 			</div>
