@@ -4,6 +4,7 @@ import './home.css'
 import ActivityList from "../activities/listActivities/ActivityList";
 import Header from "../header/header";
 import {getPublicActivities} from "../services/api-helper";
+import whitelogo from "../../media/white_logo.png"
 
 export default function Home() {
 	const universalContext = useContext(UniversalContext);
@@ -76,11 +77,11 @@ export default function Home() {
 			</nav>
 		</div>
 
-		<div className="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+		{/*<div className="jumbotron p-4 p-md-5 text-white rounded bg-dark">*/}
+		<div className="jumbotron p-4 p-md-5 text-white rounded">
 			<div className="col-md-6 px-0">
-				<h1 className="display-4 font-italic">Kidtivity</h1>
+				<h1 className="display-4 font-italic"><img src={whitelogo} id={'banner-logo'}/> Kidtivity</h1>
 				<p className="lead my-3">A free to use site for crowd sourcing artistic, developmental, and educational activities for children</p>
-				{/*<p className="lead mb-0"><a href="#" className="text-white font-weight-bold">Continue reading...</a></p>*/}
 			</div>
 		</div>
 

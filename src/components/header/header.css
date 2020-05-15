@@ -1,6 +1,15 @@
+.blog-header {
+    display: flex;
+    /*flex-direction: row-reverse;*/
+}
+
+.blog-header img {
+    height: 2em;
+}
+
 .header-button-container {
     display: flex;
-    flex-direction: row-reverse;
+    /*flex-direction: row-reverse;*/
     margin-right: 22px;
 }
 

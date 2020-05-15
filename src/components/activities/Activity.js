@@ -29,7 +29,7 @@ export default function Activity() {
 			<br/>
 			<br/>
 			<div id={"activity-details-content-container"}>
-				<img src={activityDetail.image} alt={"unable to load activity image"}/>
+				<img src={activityDetail.image} alt={"unable to load activity image"} id={'activity-image'}/>
 				<h4 id={"supplies-title"}>Required supplies:</h4>
 				<div id={"activity-details-supplies"}>{activityDetail.supplies}</div>
 				<h4 id={"body-title"}>Activity:</h4>
