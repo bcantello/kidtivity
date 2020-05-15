@@ -85,7 +85,8 @@ export default function Home() {
 			</div>
 		</div>
 
-		<div className="row mb-2">
+		{/*<div className="row mb-2">*/}
+		<div>
 			<ActivityList/>
 		</div>
 	</div>
