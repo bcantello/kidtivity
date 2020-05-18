@@ -77,15 +77,14 @@ export default function Home() {
 			</nav>
 		</div>
 
-		{/*<div className="jumbotron p-4 p-md-5 text-white rounded bg-dark">*/}
 		<div className="jumbotron p-4 p-md-5 text-white rounded">
 			<div className="col-md-6 px-0">
-				<h1 className="display-4 font-italic"><img src={whitelogo} id={'banner-logo'}/> Kidtivity</h1>
+				<h1 className="display-4 font-italic">
+					<img src={whitelogo} id={'banner-logo'} alt={"brain bulb"}/> Kidtivity</h1>
 				<p className="lead my-3">A free to use site for crowd sourcing artistic, developmental, and educational activities for children</p>
 			</div>
 		</div>
 
-		{/*<div className="row mb-2">*/}
 		<div>
 			<ActivityList/>
 		</div>
@@ -101,7 +100,7 @@ export default function Home() {
 	<footer className="blog-footer">
 		<p>Designed and built by <a href="http://www.brandoncantello.com/" target="_blank" rel="noopener nofollower noreferrer">Brandon Cantello</a> &copy; 2020</p>
 		<p>
-			<a href="#">Back to top</a>
+			<a href="/">Back to top</a>
 		</p>
 	</footer>
 </div>
