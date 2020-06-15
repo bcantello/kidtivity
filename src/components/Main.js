@@ -15,7 +15,6 @@ export default function Main() {
 			<Route path="/signup" component={SignUp}/>
 			<Route path="/create-activity" component={CreateActivity}/>
 			<Route path="/activity" component={Activity}/>
-			{/*<Route exact path="/our-team" component={About} />*/}
 			<Redirect to='/home'/>
 		</Switch>
 	);

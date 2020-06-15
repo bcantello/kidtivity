@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState} from 'react';
 import {Link} from "react-router-dom";
 import {UniversalContext} from "../../App";
 import {verifyUser} from "../services/api-helper";
